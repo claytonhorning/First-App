@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput, 
+Image, TouchableOpacity } from 'react-native';
 
 import TopBar from '../../components/TopBar/TopBar';
 import Colors from '../../constants/colors';
@@ -16,6 +17,40 @@ function FocusUpInitialScreen(props) {
            <Text style={styles.descriptionText}>Now specify the amount of time you 
            would like to stay focused for.</Text>
            <TextInput placeholder={'Hours...'} style={styles.inputStyle}/>
+
+
+            <View style={styles.descriptionContainer}>
+                <View style={styles.descriptionBox}>
+                   
+                    <Text style={styles.boxText}>Focus time</Text>
+
+                    <View style= {styles.lineStyle}/>
+
+                    <Text style={styles.blueText}>1h 30m</Text>
+
+                </View>
+
+                <View style={styles.descriptionBox}>
+                    <Text style={styles.boxText}>Earnings</Text>
+
+                    <View style= {styles.lineStyle}/>
+
+                    <View style={styles.coinContainer}>
+                        <Image style={styles.focusCoins}
+                        source={require('../../assets/img/focus-coins.png')}/>
+                        <Text style={styles.blueText}>5</Text>
+                    </View>
+                </View>
+            </View>
+
+            <View style={{alignItems: "center"}}>
+
+                <TouchableOpacity style={styles.buttonStyle}>
+                    <Image style={styles.logoStyle} source={require('../../assets/img/focus-up-logo.png')}/>
+                </TouchableOpacity>
+
+            </View>
+            
         </View>
     );
 }
@@ -55,7 +90,64 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.2,
         shadowRadius: 5,
-    }
-})
+    },
+    descriptionContainer: {
+        flexDirection: "row",
+        justifyContent: "center"
+    },
+    descriptionBox: {
+        backgroundColor: 'white',
+        marginTop: 35,
+        paddingTop: 25,
+        paddingBottom: 15,
+        width: 160,
+        margin: 10,
+        alignItems: "center",
+        borderRadius: 5,
+    },
+    boxText: {
+        fontSize: 22,
+        fontWeight: "600"
+    },
+    lineStyle:{
+        borderWidth: 1,
+        borderColor:'#EFEFEF',
+        margin:15,
+        width: '100%'
+   },
+   blueText: {
+        padding: 10,
+        fontSize: 28,
+        color: Colors.primary,
+   },
+   coinContainer: {
+       flexDirection: "row",
+       alignItems: "center"
+   },
+   focusCoins: {
+       height: 30,
+       width: 60,
+       shadowColor: "#000",
+       shadowOffset: {
+           width: 0,
+           height: 1,
+       },
+       shadowOpacity: 0.2,
+       shadowRadius: 2,
+   },
+   buttonStyle: {
+       backgroundColor: Colors.primary,
+       height: 50,
+       width: '80%',
+       alignItems: "center",
+       justifyContent: "center",
+       marginTop: 45,
+       borderRadius: 30,
+   },
+   logoStyle: {
+       height: 34,
+       width: 105,
+   }
+}) 
 
 export default FocusUpInitialScreen;
