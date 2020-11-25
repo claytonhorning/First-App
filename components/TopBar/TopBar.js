@@ -23,9 +23,9 @@ function TopBar(props) {
                     <View style={styles.UserInfo}>
                         <Icon
                         name="user"
-                        color="#ccc"
+                        color="#fff"
                         size={42}/>
-                        <Text style={styles.TextStyle}>Clayton</Text>
+                        <Text style={styles.TextStyle}>Matthew</Text>
                     </View>
                    
                 </View>
@@ -37,15 +37,16 @@ function TopBar(props) {
 const styles = StyleSheet.create({
     TopBar: {
         position: 'absolute',
-        height: 90,
         width: '100%',
         top: 0, 
         backgroundColor: Colors.primary,
     },
     TopBarItems: {
         flexDirection: "row",
-        paddingLeft: 30,
-        paddingRight: 30,
+        marginTop: 8,
+        marginBottom: 8,
+        marginLeft: 30,
+        marginRight: 30,
         alignItems: "center",
     }, 
     CoinContainer: {
