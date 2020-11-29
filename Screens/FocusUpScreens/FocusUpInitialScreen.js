@@ -33,11 +33,11 @@ function FocusUpInitialScreen(props) {
                 <View style={styles.descriptionBox}>
                     <Text style={styles.boxText}>Earnings</Text>
 
-                    <View style= {styles.lineStyle}/>
+                    <View style={styles.lineStyle}/>
 
                     <View style={styles.coinContainer}>
                         <Image style={styles.focusCoins}
-                        source={require('../../assets/img/focus-coins.png')}/>
+                        source={require('../../assets/img/focus-coins-3.png')}/>
                         <Text style={styles.blueText}>5</Text>
                     </View>
                 </View>
@@ -104,6 +104,14 @@ const styles = StyleSheet.create({
         margin: 10,
         alignItems: "center",
         borderRadius: 5,
+        elevation: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
     },
     boxText: {
         fontSize: 22,

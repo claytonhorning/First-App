@@ -5,6 +5,7 @@ import TopBar from '../TopBar/TopBar';
 import Icon from "react-native-vector-icons/EvilIcons";
 import Colors from "../../constants/colors";
 import FocusUpInitialScreen from '../../Screens/FocusUpScreens/FocusUpInitialScreen';
+import PurchaseCoinsScreen from '../../Screens/WalletScreens/PurchaseCoinsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +38,7 @@ function BottomNav() {
       />
       <Tab.Screen
         name="Wallet"
-        component={TopBar}
+        component={PurchaseCoinsScreen}
         options={{
           tabBarLabel: 'Wallet',
           tabBarIcon: ({ color, size }) => (
