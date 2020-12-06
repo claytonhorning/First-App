@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 
 import TopBar from '../../components/TopBar/TopBar';
 import Colors from '../../constants/colors';
@@ -50,6 +50,12 @@ const PurchaseCoinsScreen = (props) => {
                         <Text style={styles.blueText}>204</Text>
                     </View>
                 </View>
+            </View>
+
+            <View style={{alignItems: "center"}}>
+                <TouchableOpacity style={styles.buttonStyle}>
+                    <Text style={styles.buttonText}>Cash out</Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     );
@@ -159,6 +165,20 @@ const styles = StyleSheet.create({
        shadowOpacity: 0.2,
        shadowRadius: 2,
    },
+   buttonStyle: {
+        backgroundColor: Colors.primary,
+        height: 50,
+        width: '80%',
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 45,
+        borderRadius: 30,
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: "bold",
+        fontSize: 20,
+    }
 })
 
 export default PurchaseCoinsScreen;
