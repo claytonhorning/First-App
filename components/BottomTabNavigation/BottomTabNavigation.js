@@ -6,7 +6,8 @@ import Icon from "react-native-vector-icons/EvilIcons";
 import Colors from "../../constants/colors";
 import FocusUpInitialScreen from '../../Screens/FocusUpScreens/FocusUpInitialScreen';
 import PurchaseCoinsScreen from '../../Screens/WalletScreens/PurchaseCoinsScreen';
-import AccountScreen from '../../Screens/AccountScreens/AccountScreen';
+import LoginScreen from '../../Screens/LoginScreens/LoginScreen';
+import SignUpScreen from '../../Screens/LoginScreens/SignUpScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +20,7 @@ function BottomNav() {
     }}>
        <Tab.Screen
         name="Account"
-        component={AccountScreen}
+        component={LoginScreen}
         options={{
           tabBarLabel: 'Account',
           tabBarIcon: ({ color, size }) => (
