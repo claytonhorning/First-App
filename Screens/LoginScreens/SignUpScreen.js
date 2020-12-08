@@ -1,41 +1,46 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 
 import Colors from '../../constants/colors';
 
 const SignUpScreen = () => {
     return (
-        <View style={styles.container}>
 
-            <View style={styles.topContainer}>
-                <Text style={styles.header}>Create Account,</Text>
-                <Text style={styles.subheader}>Sign up to get started!</Text>
-            </View>
+        <SafeAreaView>
+
+            <View style={styles.container}>
+
+                <View style={styles.topContainer}>
+                    <Text style={styles.header}>Create Account,</Text>
+                    <Text style={styles.subheader}>Sign up to get started!</Text>
+                </View>
+                
+                <View style={styles.middleContainer}>
+                    <Text style={styles.description}>Full Name</Text>
+                    <TextInput placeholder={'Full Name'} style={styles.inputBox}></TextInput>
+
+                    <Text style={styles.description}>Email</Text>
+                    <TextInput placeholder={'Email'} style={styles.inputBox}></TextInput>
+
+                    <Text style={styles.description}>Password</Text>
+                    <TextInput placeholder={'Password'} style={styles.inputBox}></TextInput>
+
+                    <Text style={styles.description}>Confirm Password</Text>
+                    <TextInput placeholder={'Confirm Password'} style={styles.inputBox}></TextInput>
+
+                    <TouchableOpacity style={styles.buttonStyle}>
+                        <Text style={styles.buttonText}>Sign Up</Text>
+                    </TouchableOpacity>
+                </View>
             
-            <View style={styles.middleContainer}>
-                <Text style={styles.description}>Full Name</Text>
-                <TextInput placeholder={'Full Name'} style={styles.inputBox}></TextInput>
-
-                <Text style={styles.description}>Email</Text>
-                <TextInput placeholder={'Email'} style={styles.inputBox}></TextInput>
-
-                <Text style={styles.description}>Password</Text>
-                <TextInput placeholder={'Password'} style={styles.inputBox}></TextInput>
-
-                <Text style={styles.description}>Confirm Password</Text>
-                <TextInput placeholder={'Confirm Password'} style={styles.inputBox}></TextInput>
-
-                <TouchableOpacity style={styles.buttonStyle}>
-                    <Text style={styles.buttonText}>Sign Up</Text>
-                </TouchableOpacity>
+                <View style={styles.bottomContainer}>
+                    <Text style={styles.bottomText}>Already have an account?</Text>
+                    <Text style={styles.signUpText}>Login</Text>
+                </View>
+                
             </View>
-        
-            <View style={styles.bottomContainer}>
-                <Text style={styles.bottomText}>Already have an account?</Text>
-                <Text style={styles.signUpText}>Login</Text>
-            </View>
-            
-        </View>
+
+        </SafeAreaView>
     );
 }
 

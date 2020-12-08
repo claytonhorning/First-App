@@ -1,56 +1,120 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, 
-Image, TouchableOpacity } from 'react-native';
+Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 
 import TopBar from '../../components/TopBar/TopBar';
 import Colors from '../../constants/colors';
 
 function FocusUpInitialScreen(props) {
     return (
-        
         <View style={styles.container}>
+
             <TopBar/>
-           <Text style={styles.headerTextStyle}>Hello, Matthew!</Text>
-           <Text style={styles.descriptionText}>Get started by entering the amount of focus coins 
-           you would like to use.</Text>
-           <TextInput placeholder={'Enter amount...'} style={styles.inputStyle}/>
-           <Text style={styles.descriptionText}>Now specify the amount of time you 
-           would like to stay focused for.</Text>
-           <TextInput placeholder={'Hours...'} style={styles.inputStyle}/>
 
+            <SafeAreaView>
+                <View style={styles.infoContainer}>
+                    <Text style={styles.headerTextStyle}>Hello, Matthew!</Text>
 
-            <View style={styles.descriptionContainer}>
-                <View style={styles.descriptionBox}>
-                   
-                    <Text style={styles.boxText}>Focus time</Text>
-
-                    <View style= {styles.lineStyle}/>
-
-                    <Text style={styles.blueText}>1h 30m</Text>
-
+                    <Text style={styles.descriptionText}>Get started by choosing a focus session (tap to select).
+                    </Text>
                 </View>
 
-                <View style={styles.descriptionBox}>
-                    <Text style={styles.boxText}>Earnings</Text>
+                <ScrollView style={styles.focusSessionsContainer} horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <View style={styles.focusSession}>
+                        <Text style={styles.focusTimeText}>30 minutes</Text>
+                        <View style={styles.focusSessionBox}>
+                            <View style={styles.focusSessionInfo}>
+                                <Text style={styles.focusDescriptionText}>You'll Risk:</Text>
+                                <Image style={styles.focusCoins}
+                                source={require('../../assets/img/focus-coins-3.png')}/>
+                                <Text style={styles.focusCoinsDescription}>100</Text>
+                            </View>
 
-                    <View style={styles.lineStyle}/>
+                            <View style={styles.lineStyle}/>
 
-                    <View style={styles.coinContainer}>
-                        <Image style={styles.focusCoins}
-                        source={require('../../assets/img/focus-coins-3.png')}/>
-                        <Text style={styles.blueText}>5</Text>
+                            <View style={styles.focusSessionInfo}>
+                                <Text style={styles.focusDescriptionText}>You'll Win:</Text>
+                                <Image style={styles.focusCoins}
+                                source={require('../../assets/img/focus-coins-3.png')}/>
+                                <Text style={styles.focusCoinsDescription}>150</Text>
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={styles.focusSession}>
+                        <Text style={styles.focusTimeText}>1 hour</Text>
+                        <View style={styles.focusSessionBox}>
+                            <View style={styles.focusSessionInfo}>
+                                <Text style={styles.focusDescriptionText}>You'll Risk:</Text>
+                                <Image style={styles.focusCoins}
+                                source={require('../../assets/img/focus-coins-3.png')}/>
+                                <Text style={styles.focusCoinsDescription}>100</Text>
+                            </View>
+
+                            <View style={styles.lineStyle}/>
+
+                            <View style={styles.focusSessionInfo}>
+                                <Text style={styles.focusDescriptionText}>You'll Win:</Text>
+                                <Image style={styles.focusCoins}
+                                source={require('../../assets/img/focus-coins-3.png')}/>
+                                <Text style={styles.focusCoinsDescription}>150</Text>
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={styles.focusSession}>
+                        <Text style={styles.focusTimeText}>1h 30 minutes</Text>
+                        <View style={styles.focusSessionBox}>
+                            <View style={styles.focusSessionInfo}>
+                                <Text style={styles.focusDescriptionText}>You'll Risk:</Text>
+                                <Image style={styles.focusCoins}
+                                source={require('../../assets/img/focus-coins-3.png')}/>
+                                <Text style={styles.focusCoinsDescription}>100</Text>
+                            </View>
+
+                            <View style={styles.lineStyle}/>
+
+                            <View style={styles.focusSessionInfo}>
+                                <Text style={styles.focusDescriptionText}>You'll Win:</Text>
+                                <Image style={styles.focusCoins}
+                                source={require('../../assets/img/focus-coins-3.png')}/>
+                                <Text style={styles.focusCoinsDescription}>150</Text>
+                            </View>
+                        </View>
+                    </View>
+                </ScrollView>
+            
+                <View style={styles.descriptionContainer}>
+                    <View style={styles.descriptionBox}>
+                    
+                        <Text style={styles.boxText}>Focus time</Text>
+
+                        <View style= {styles.lineStyle}/>
+
+                        <Text style={styles.blueText}>1h 30m</Text>
+
+                    </View>
+
+                    <View style={styles.descriptionBox}>
+                        <Text style={styles.boxText}>Earnings</Text>
+
+                        <View style={styles.lineStyle}/>
+
+                        <View style={styles.coinContainer}>
+                            <Image style={styles.focusCoins}
+                            source={require('../../assets/img/focus-coins-3.png')}/>
+                            <Text style={styles.blueText}>5</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
 
-            <View style={{alignItems: "center"}}>
+                <View style={{alignItems: "center"}}>
 
-                <TouchableOpacity style={styles.buttonStyle}>
-                    <Image style={styles.logoStyle} source={require('../../assets/img/focus-up-logo.png')}/>
-                </TouchableOpacity>
-
-            </View>
-            
+                    <TouchableOpacity style={styles.buttonStyle}>
+                        <Image style={styles.logoStyle} source={require('../../assets/img/focus-up-logo.png')}/>
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView>
         </View>
     );
 }
@@ -60,8 +124,14 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.background,
         flex: 1,
     },
+    infoContainer: {
+        paddingTop: "20%"
+    },
+    focusSessionsContainer: {
+        paddingTop: "8%",
+        
+    },
     headerTextStyle: {
-        paddingTop: 130,
         paddingLeft: 35,
         fontSize: 25,
         fontWeight: "bold"
@@ -73,27 +143,9 @@ const styles = StyleSheet.create({
         paddingRight: 35,
         fontWeight: "300"
     },
-    inputStyle: {
-        marginTop: 30,
-        height: 55,
-        textAlign: "center",
-        backgroundColor: 'white',
-        borderRadius: 30,
-        width: 300,
-        fontSize: 18,
-        alignSelf: "center",
-        elevation: 5,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 5,
-    },
     descriptionContainer: {
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",    
     },
     descriptionBox: {
         backgroundColor: 'white',
@@ -120,7 +172,7 @@ const styles = StyleSheet.create({
     lineStyle:{
         borderWidth: 1,
         borderColor:'#EFEFEF',
-        margin:15,
+        margin:20,
         width: '100%'
    },
    blueText: {
@@ -150,11 +202,56 @@ const styles = StyleSheet.create({
        alignItems: "center",
        justifyContent: "center",
        marginTop: 45,
-       borderRadius: 30,
+       borderRadius: 5,
    },
    logoStyle: {
        height: 34,
        width: 105,
+   },
+    focusSession: {
+        flex: 1,
+    },
+    focusSessionBox: {
+        backgroundColor: 'white',
+        paddingTop: 25,
+        paddingBottom: 25,
+        width: 240,
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 35,
+        marginRight: 35,
+        alignItems: "center",
+        borderRadius: 5,
+        elevation: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+   },
+   focusTimeText: {
+        marginLeft: 22,
+        fontSize: 17,
+        paddingLeft: 10,
+        fontWeight: "bold"
+   },
+   focusSessionInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+
+   },
+   focusDescriptionText: {
+        marginRight: "2%",
+        fontSize: 17,
+        fontWeight: "500"
+   },
+   focusCoinsDescription:{
+       marginLeft: "2%",
+       fontSize: 17,
+       color: Colors.primary,
+       fontWeight: "500"
    }
 }) 
 
